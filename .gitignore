@@ -47,4 +47,40 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+#Translations
+
+#Mr Developer
+.project
+.pydevproject
+.settings/
+*.iml
+
+# Backup files
+*~
+.idea
+
+#Other
+.DS_Store
 

@@ -76,7 +76,7 @@ class YtpCommentsPlugin(plugins.SingletonPlugin):
         import ckan.model as model
         from ckan.logic import get_action
         url = '/dataset/%s' % dataset_name
-        return get_action('thread_show')({'model': model, 'with_deleted': True}, {'url': url})
+        return get_action('thread_show')({'model': model, 'with_deleted': False}, {'url': url})
 
     def _get_comment_count_for_dataset(self, dataset_name):
         import ckan.model as model

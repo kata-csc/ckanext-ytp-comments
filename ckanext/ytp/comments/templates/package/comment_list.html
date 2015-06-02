@@ -3,15 +3,17 @@
 {% resource "comments_js/comments.js" %}
 
 {% macro comment_form(values={}, empty=False, hidden=True, prefix="", action="add") %}
-    <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %}" action="{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
-        <div class="form-controls">
-            <label for="subject">{{ _('Subject') }}</label>
-            <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %}/>
-            <label for="comment">{{ _('Comment') }}</label>
-            {% set unescaped_content = values.content.split('<br/>') %}
-            <textarea name="comment" class="form-control" rows="10">{% if not empty %}{% for line in unescaped_content %}{{ line | striptags }}{{'\n'}}{% endfor %}{% endif %}</textarea>
+    <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %}" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
+        <div>
+            {#<label for="subject">{{ _('Subject') }}</label>#}
+            <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %} placeholder="{{ _('Comment subject') }}"/>
         </div>
-        <div class="form-actions">
+        <div>
+            {#<label for="comment">{{ _('Comment') }}</label>#}
+            {% set unescaped_content = values.content.split('<br/>') %}
+            <textarea name="comment" class="form-control" rows="3" placeholder="{{ _('Comment text') }}">{% if not empty %}{% for line in unescaped_content %}{{ line | striptags }}{{'\n'}}{% endfor %}{% endif %}</textarea>
+        </div>
+        <div>
             <input type="submit" class="btn btn-primary" value="{{ _('Save') }}"/>
             <input type="reset" class="btn" value="{{ _('Clear') }}"/>
         </div>
@@ -26,7 +28,7 @@
 
     <div class="comment-wrapper">
     {% for comment in thread.comments %}
-        {{ comment.id }}
+        {#{ comment.id }#}
         <div class="comment">
             {% if comment.state != 'deleted' %}
                 <h3>{{ comment.subject }}</h3>
@@ -43,10 +45,10 @@
             {% if comment.state != 'deleted' %}
                 {{ comment.content|safe }}
             {% else %}
-                {{ _('This comment was deleted.') }}
+                <p class="gray">{{ _('This comment was deleted.') }}</p>
             {% endif %}
             {% if comment.state == 'active' %}
-            <ul class="links list-inline">
+            <ul class="comment-links">
                 {% if h.check_access('package_update', {'id': pkg_id }) %}
                     <li><a href="/dataset/{{ pkg_id }}/comments/{{ comment.id }}/delete">{{ _('Delete') }}</a> </li>
                 {% endif %}
@@ -78,15 +80,14 @@
 
 {% if userobj %}
 
-<form class="form" action="{{ pkg_id }}/comments/add" method="POST">
-    <div class="form-controls">
-        <label for="subject">{{ _('Subject') }}</label>
-        <input type="text" class="form-control" name="subject"/>
-
-        <label for="comment">{{ _('Comment') }}</label>
-        <textarea name="comment" class="form-control" rows="10"></textarea>
+<form class="form comment-form" action="/dataset/{{ pkg_id }}/comments/add" method="POST">
+    <div>
+        <input type="text" class="" name="subject" placeholder="{{ _('Comment subject') }}"/>
+      </div>
+  <div>
+        <textarea name="comment" class="" rows="3" placeholder="{{ _('Comment text') }}"></textarea>
     </div>
-    <div class="form-actions">
+    <div>
         <input type="submit" class="btn btn-primary" value="{{ _('Save') }}"/>
         <input type="reset" class="btn" value="{{ _('Clear') }}"/>
     </div>
