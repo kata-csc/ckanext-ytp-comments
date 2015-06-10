@@ -6,16 +6,16 @@
     <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %}" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
         <div>
             {#<label for="subject">{{ _('Subject') }}</label>#}
-            <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %} placeholder="{{ _('Comment subject') }}"/>
+            <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %} placeholder="{{ _('Reply subject') }}"/>
         </div>
         <div>
             {#<label for="comment">{{ _('Comment') }}</label>#}
             {% set unescaped_content = values.content.split('<br/>') %}
-            <textarea name="comment" class="form-control" rows="3" placeholder="{{ _('Comment text') }}">{% if not empty %}{% for line in unescaped_content %}{{ line | striptags }}{{'\n'}}{% endfor %}{% endif %}</textarea>
+            <textarea name="comment" class="form-control" rows="3" placeholder="{{ _('Reply text') }}">{% if not empty %}{% for line in unescaped_content %}{{ line | striptags }}{{'\n'}}{% endfor %}{% endif %}</textarea>
         </div>
         <div>
-            <input type="submit" class="btn btn-primary" value="{{ _('Save') }}"/>
-            <input type="reset" class="btn" value="{{ _('Clear') }}"/>
+            <input type="submit" class="btn btn-primary btn-blue" value="{{ _('Save') }}"/>
+            <input type="reset" class="btn btn-white" value="{{ _('Clear') }}"/>
         </div>
     </form>
 {% endmacro %}
@@ -31,9 +31,9 @@
         {#{ comment.id }#}
         <div class="comment">
             {% if comment.state != 'deleted' %}
-                <h3>{{ comment.subject }}</h3>
-            {% else %}
-                <h3>{{ _('This comment was deleted.') }}</h3>
+                <h3 class="comment-subject">{{ comment.subject }}</h3>
+            {% else %} class=comment-subject"
+                <h3 class="comment-subject">{{ _('This comment was deleted.') }}</h3>
             {% endif %}
             <div class="submitted">
                 <span>{{ h.render_datetime(comment.creation_date, "%d.%m.%Y %H:%M") }} {{  h.linked_user(comment.user_id, 0, 10) }}</span>
@@ -49,19 +49,18 @@
             {% endif %}
             {% if comment.state == 'active' %}
             <ul class="comment-links">
+                <!-- Comment controls -->
                 {% if h.check_access('package_update', {'id': pkg_id }) %}
                     <li><a href="/dataset/{{ pkg_id }}/comments/{{ comment.id }}/delete">{{ _('Delete') }}</a> </li>
                 {% endif %}
-
-                {% if userobj and comment.user_id == userobj.id %}
-                    <li><a onclick="ShowCommentForm('edit_{{ comment.id }}')">{{ _('Edit') }}</a></li>
-                    {{ comment_form(comment, prefix='edit_', action='edit') }}
-                {% endif %}
                 {% if userobj %}
-                    <li><a onclick="ShowCommentForm('reply_{{ comment.id }}')">{{ _('Reply') }}</a> </li>
-                    {{ comment_form(comment, empty=True, prefix='reply_', action='reply') }}
+                  {% if comment.user_id == userobj.id %}
+                  <li><a onclick="ShowCommentForm('edit_{{ comment.id }}')">{{ _('Edit') }}</a></li>
+                  {% endif %}
+                  <li><a onclick="ShowCommentForm('reply_{{ comment.id }}')">{{ _('Reply') }}</a> </li>
+                  {{ comment_form(comment, prefix='edit_', action='edit') }}
+                  {{ comment_form(comment, empty=True, prefix='reply_', action='reply') }}
                 {% endif %}
-
             </ul>
             {% endif %}
             </div>
@@ -73,35 +72,33 @@
     </div>
 
 {% endmacro %}
-<h3 id="comments">{{ _('Comments') }}</h3>
+
+<h3>{{ _('Comments') }}</h3>
 <div class="comment-container">
     {{ comment_thread(thread) }}
 </div>
 
 {% if userobj %}
 
-<hr />
+  <form class="form comment-form bordered" action="/dataset/{{ pkg_id }}/comments/add" method="POST">
+    <p>
+      {% trans %}
+      You need to be logged in to be able to comment.
+      The comments are a part of the dataset and the publisher has the right to delete them.
+      More information can be found in the help and terms of use pages.
+      {% endtrans %}
+    </p>
 
-<form class="form comment-form" action="/dataset/{{ pkg_id }}/comments/add" method="POST">
-  <p>
-    {% trans %}
-    You need to be logged in to be able to comment.
-    The comments are a part of the dataset and the publisher has the right to delete them.
-    More information can be found in the help and terms of use pages.
-    {% endtrans %}
-  </p>
-
-    <div>
+      <div>
         <input type="text" class="" name="subject" placeholder="{{ _('Comment subject') }}"/>
-      </div>
-  <div>
         <textarea name="comment" class="" rows="3" placeholder="{{ _('Comment text') }}"></textarea>
-    </div>
-    <div>
-        <input type="submit" class="btn btn-primary" value="{{ _('Save') }}"/>
-        <input type="reset" class="btn" value="{{ _('Clear') }}"/>
-    </div>
-</form>
+      </div>
+      <div>
+        <input type="submit" class="btn btn-blue" value="{{ _('Save') }}"/>
+        <input type="reset" class="btn btn-white" value="{{ _('Clear') }}"/>
+      </div>
+
+  </form>
 
 {% else %}
     {{ _('Login to comment.') }}
