@@ -3,7 +3,7 @@
 {% resource "comments_js/comments.js" %}
 
 {% macro comment_form(values={}, empty=False, hidden=True, prefix="", action="add") %}
-    <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %}" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
+    <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %} togglable" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
         <div>
             {#<label for="subject">{{ _('Subject') }}</label>#}
             <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %} placeholder="{{ _('Reply subject') }}"/>
