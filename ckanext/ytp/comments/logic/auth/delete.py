@@ -14,16 +14,21 @@ def comment_delete(context, data_dict):
     user = context['user']
 
     userobj = model.User.get(user)
-    # If sysadmin.
-    if new_authz.is_sysadmin(user):
-        return {'success': True}
-
 
     cid = logic.get_or_bust(data_dict, 'id')
 
     comment = comment_model.Comment.get(cid)
     if not comment:
         return {'success': False, 'msg': _('Comment does not exist')}
+
+    # if sysadmin.
+    if new_authz.is_sysadmin(user):
+        return {'success': True}
+
+    # if package owner / organization owner
+    if logic.check_access('package_update', context, data_dict):
+        log.debug("HERE WE GO!")
+        return {'success': True}
 
     if comment.user_id != userobj.id:
         return {'success': False, 'msg': _('User is not the author of the comment')}
