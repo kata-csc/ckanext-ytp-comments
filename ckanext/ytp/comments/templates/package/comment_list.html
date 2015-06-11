@@ -3,7 +3,8 @@
 {% resource "comments_js/comments.js" %}
 
 {% macro comment_form(values={}, empty=False, hidden=True, prefix="", action="add") %}
-    <form id="{{ prefix + values.id }}" class="form {% if hidden %}hidden{% endif %} togglable" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
+  <div id="{{ prefix + values.id }}" class="togglable form {% if hidden %}hidden{% endif %} ">
+    <form class="bordered inline-form" action="/dataset/{{ pkg_id }}/comments/{% if values.id %}{{ values.id }}/{% endif %}{{ action }}" method="POST">
         <div>
             {#<label for="subject">{{ _('Subject') }}</label>#}
             <input type="text" class="form-control" name="subject" {% if not empty %}value="{{ values.subject }}" {% endif %} placeholder="{{ _('Reply subject') }}"/>
@@ -18,6 +19,7 @@
             <input type="reset" class="btn btn-white" value="{{ _('Clear') }}"/>
         </div>
     </form>
+  </div>
 {% endmacro %}
 
 
@@ -36,9 +38,12 @@
                 <h3 class="comment-subject">{{ _('This comment was deleted.') }}</h3>
             {% endif %}
             <div class="submitted">
-                <span>{{ h.render_datetime(comment.creation_date, "%d.%m.%Y %H:%M") }} {{  h.linked_user(comment.user_id, 0, 10) }}</span>
+                <span>
+                  {{ h.render_datetime(comment.creation_date, "%d.%m.%Y %H:%M") }} {{  h.linked_user(comment.user_id, 0, 10) }}
+                  {% if comment.modified_date %}<br/><span class="span-right"> {{ _('Edited') }} </span>{% endif %}
+                </span>
                 {% if comment.modified_date %}
-                    <br/><span>{{ h.render_datetime(comment.modified_date, "%d.%m.%Y %H:%M") }} {{ _('Modified') }} </span>
+                    {#<br/><span>{{ h.render_datetime(comment.modified_date, "%d.%m.%Y %H:%M") }} {{ _('Edited') }} </span>#}
                 {% endif %}
             </div>
             <div class="content">
