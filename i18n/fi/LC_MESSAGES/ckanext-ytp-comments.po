@@ -1,85 +1,111 @@
-# Translations template for ckanext-ytp-comments.
+# Finnish translations for ckanext-ytp-comments.
 # Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the ckanext-ytp-comments
+# This file is distributed under the same license as the
+# ckanext-ytp-comments
 # project.
-# 
+#
 # Translators:
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: ytp\n"
+"Project-Id-Version:  ytp\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-03-18 13:04+0200\n"
+"POT-Creation-Date: 2015-08-31 09:22+0000\n"
 "PO-Revision-Date: 2015-03-18 11:05+0000\n"
 "Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/ytp/language/fi/)\n"
+"Language-Team: Finnish "
+"(http://www.transifex.com/projects/p/ytp/language/fi/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
-"Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ckanext/ytp/comments/logic/auth/create.py:15
 #: ckanext/ytp/comments/logic/auth/update.py:17
 msgid "You must be logged in to add a comment"
 msgstr "Sinun täytyy kirjautua sisään kommentoidaksesi"
 
-#: ckanext/ytp/comments/logic/auth/delete.py:25
+#: ckanext/ytp/comments/logic/auth/delete.py:22
 #: ckanext/ytp/comments/logic/auth/update.py:23
 msgid "Comment does not exist"
 msgstr "Kommenttia ei ole olemassa"
 
-#: ckanext/ytp/comments/logic/auth/delete.py:28
+#: ckanext/ytp/comments/logic/auth/delete.py:34
 #: ckanext/ytp/comments/logic/auth/update.py:26
 msgid "User is not the author of the comment"
 msgstr "Käyttäjä ei ole kommentin kirjoittaja"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:8
-#: ckanext/ytp/comments/templates/package/comment_list.html:83
-msgid "Subject"
+#: ckanext/ytp/comments/templates/package/comment_list.html:10
+#, fuzzy
+#| msgid "Subject"
+msgid "Reply subject"
 msgstr "Otsikko"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:10
-#: ckanext/ytp/comments/templates/package/comment_list.html:86
-msgid "Comment"
-msgstr "Kommentti"
-
 #: ckanext/ytp/comments/templates/package/comment_list.html:15
-#: ckanext/ytp/comments/templates/package/comment_list.html:90
+msgid "Reply text"
+msgstr "Vastausviesti"
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:18
+#: ckanext/ytp/comments/templates/package/comment_list.html:102
 msgid "Save"
 msgstr "Tallenna"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:16
-#: ckanext/ytp/comments/templates/package/comment_list.html:91
+#: ckanext/ytp/comments/templates/package/comment_list.html:19
+#: ckanext/ytp/comments/templates/package/comment_list.html:103
 msgid "Clear"
 msgstr "Tyhjennä"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:34
-#: ckanext/ytp/comments/templates/package/comment_list.html:46
+#: ckanext/ytp/comments/templates/package/comment_list.html:38
+#: ckanext/ytp/comments/templates/package/comment_list.html:53
 msgid "This comment was deleted."
 msgstr "Tämä kommentti on poistettu."
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:39
-msgid "Modified"
-msgstr "Muokattu"
-
-#: ckanext/ytp/comments/templates/package/comment_list.html:51
-msgid "Delete"
-msgstr "Poista"
-
-#: ckanext/ytp/comments/templates/package/comment_list.html:55
-msgid "Edit"
+#: ckanext/ytp/comments/templates/package/comment_list.html:43
+msgid "Edited"
 msgstr "Muokkaa"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:59
+msgid "Delete"
+msgstr "Poista"
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:63
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:65
 msgid "Reply"
 msgstr "Vastaa"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:74
+#: ckanext/ytp/comments/templates/package/comment_list.html:81
 msgid "Comments"
 msgstr "Kommentit"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:96
-msgid "Login to comment."
+#: ckanext/ytp/comments/templates/package/comment_list.html:90
+msgid ""
+" You need to be logged in to be able to comment. The comments are a part "
+"of the dataset and the publisher has the right to delete them. More "
+"information can be found in the help and terms of use pages. "
+msgstr ""
+" Sinun täytyy olla sisäänkirjautuneena kommentoidaksesi. "
+"Kommentit ovat osa aineistoa ja julkaisijalla on oikeus poistaa ne. "
+"Lisätietoa löydät ohjeista ja käyttöehdoista."
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:98
+msgid "Comment subject"
+msgstr "Kommentin aihe"
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:99
+msgid "Comment text"
+msgstr "Kommentin teksti"
+
+#: ckanext/ytp/comments/templates/package/comment_list.html:110
+msgid "Please log in to comment."
 msgstr "Kirjaudu sisään kommentoidaksesi"
+
+#~ msgid "Comment"
+#~ msgstr "Kommentti"
+
+#~ msgid "Modified"
+#~ msgstr "Muokattu"
+
