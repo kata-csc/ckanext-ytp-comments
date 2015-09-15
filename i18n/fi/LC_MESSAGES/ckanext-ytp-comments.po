@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  ytp\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-31 09:22+0000\n"
+"POT-Creation-Date: 2015-09-15 06:53+0000\n"
 "PO-Revision-Date: 2015-03-18 11:05+0000\n"
 "Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>\n"
 "Language-Team: Finnish "
@@ -37,22 +37,20 @@ msgid "User is not the author of the comment"
 msgstr "Käyttäjä ei ole kommentin kirjoittaja"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:10
-#, fuzzy
-#| msgid "Subject"
 msgid "Reply subject"
-msgstr "Otsikko"
+msgstr "Vastauksen aihe"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:15
 msgid "Reply text"
 msgstr "Vastausviesti"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:18
-#: ckanext/ytp/comments/templates/package/comment_list.html:102
+#: ckanext/ytp/comments/templates/package/comment_list.html:101
 msgid "Save"
 msgstr "Tallenna"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:19
-#: ckanext/ytp/comments/templates/package/comment_list.html:103
+#: ckanext/ytp/comments/templates/package/comment_list.html:102
 msgid "Clear"
 msgstr "Tyhjennä"
 
@@ -83,29 +81,23 @@ msgstr "Kommentit"
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:90
 msgid ""
-" You need to be logged in to be able to comment. The comments are a part "
-"of the dataset and the publisher has the right to delete them. More "
-"information can be found in the help and terms of use pages. "
+" The comments are a part of the dataset and the publisher has the right "
+"to delete them. More information can be found in the help and terms of "
+"use pages. "
 msgstr ""
-" Sinun täytyy olla sisäänkirjautuneena kommentoidaksesi. "
-"Kommentit ovat osa aineistoa ja julkaisijalla on oikeus poistaa ne. "
-"Lisätietoa löydät ohjeista ja käyttöehdoista."
+" Kommentit ovat "
+"osa aineistoa ja julkaisijalla on oikeus poistaa ne. Lisätietoa löydät "
+"ohjeista ja käyttöehdoista."
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:98
+#: ckanext/ytp/comments/templates/package/comment_list.html:97
 msgid "Comment subject"
 msgstr "Kommentin aihe"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:99
+#: ckanext/ytp/comments/templates/package/comment_list.html:98
 msgid "Comment text"
 msgstr "Kommentin teksti"
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:110
+#: ckanext/ytp/comments/templates/package/comment_list.html:109
 msgid "Please log in to comment."
 msgstr "Kirjaudu sisään kommentoidaksesi"
-
-#~ msgid "Comment"
-#~ msgstr "Kommentti"
-
-#~ msgid "Modified"
-#~ msgstr "Muokattu"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-ytp-comments 0.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-31 09:22+0000\n"
+"POT-Creation-Date: 2015-09-15 06:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,12 +42,12 @@ msgid "Reply text"
 msgstr ""
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:18
-#: ckanext/ytp/comments/templates/package/comment_list.html:102
+#: ckanext/ytp/comments/templates/package/comment_list.html:101
 msgid "Save"
 msgstr ""
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:19
-#: ckanext/ytp/comments/templates/package/comment_list.html:103
+#: ckanext/ytp/comments/templates/package/comment_list.html:102
 msgid "Clear"
 msgstr ""
 
@@ -78,20 +78,20 @@ msgstr ""
 
 #: ckanext/ytp/comments/templates/package/comment_list.html:90
 msgid ""
-" You need to be logged in to be able to comment. The comments are a part of "
-"the dataset and the publisher has the right to delete them. More information "
-"can be found in the help and terms of use pages. "
+" The comments are a part of the dataset and the publisher has the right to "
+"delete them. More information can be found in the help and terms of use "
+"pages. "
 msgstr ""
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:98
+#: ckanext/ytp/comments/templates/package/comment_list.html:97
 msgid "Comment subject"
 msgstr ""
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:99
+#: ckanext/ytp/comments/templates/package/comment_list.html:98
 msgid "Comment text"
 msgstr ""
 
-#: ckanext/ytp/comments/templates/package/comment_list.html:110
+#: ckanext/ytp/comments/templates/package/comment_list.html:109
 msgid "Please log in to comment."
 msgstr ""
 
