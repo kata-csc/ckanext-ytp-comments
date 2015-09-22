@@ -85,7 +85,7 @@
 
 {% if userobj %}
 
-  <form class="form comment-form bordered" action="/dataset/{{ pkg_id }}/comments/add" method="POST">
+  <form class="form comment-form bordered" action="{{ h.url_for(('/dataset/{id}/comments/add').format(id=pkg_id)) }}" method="POST">
     <p>
       {% trans %}
       The comments are a part of the dataset and the publisher has the right to delete them.
