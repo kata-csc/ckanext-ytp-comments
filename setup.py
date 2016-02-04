@@ -18,9 +18,6 @@ setup(
     namespace_packages=['ckanext', 'ckanext.ytp', 'ckanext.ytp.comments'],
     include_package_data=True,
     zip_safe=False,
-    install_requires=[
-        # -*- Extra requirements: -*-
-    ],
     message_extractors={
         'ckanext/ytp/comments': [
             ('**.py', 'python', None),
