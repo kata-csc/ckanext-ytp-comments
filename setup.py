@@ -24,11 +24,11 @@ setup(
             ('templates/**.html', 'ckan', None)
         ]
     },
-    entry_points='''
+    entry_points="""
         [ckan.plugins]
         ytp_comments=ckanext.ytp.comments.plugin:YtpCommentsPlugin
 
         [paste.paster_command]
         initdb = ckanext.ytp.comments.command:InitDBCommand
-    ''',
+        """,
 )
